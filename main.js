@@ -26,6 +26,9 @@ loadingManager.onLoad = function () {
 }
 loadingManager.onError = function (url) {
   console.log("Error : ", url)
+  if(progressBarContainer.length > 0) {
+    progressBarContainer[0].style.display = 'none';
+  }
 }
 const scene = new THREE.Scene();
 
@@ -69,10 +72,11 @@ scene.add(pointLight, ambientLight);
 // scene.add(lightHelper, gridHelper)
 
 // const controls = new OrbitControls(camera, renderer.domElement);
+const normalTexture = new THREE.TextureLoader(loadingManager).load('normal.jpg');
 
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff});
   const star = new THREE.Mesh(geometry, material);
 
   const [x, y, z] = Array(3)
@@ -92,16 +96,26 @@ scene.background = spaceTexture;
 
 // Avatar
 
-const shakeelHaider = new THREE.TextureLoader(loadingManager).load('shakeel_haider.jpg');
+// const shakeelHaiderTexture = new THREE.TextureLoader(loadingManager).load('shakeel_haider.jpg');
 
-const jeff = new THREE.Mesh(new RoundedBoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: shakeelHaider }));
+// const shakeelHaider = new THREE.Mesh(new RoundedBoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: shakeelHaiderTexture }));
 
-scene.add(jeff);
+// scene.add(shakeelHaider);
+
+// earth
+const earthTexture = new THREE.TextureLoader(loadingManager).load('flat_earth03.jpeg');
+
+const earthGeo = new THREE.SphereGeometry(2, 40, 40);
+const earthMesh = new THREE.MeshStandardMaterial({
+  map: earthTexture
+});
+
+const earth = new THREE.Mesh(earthGeo, earthMesh);
+scene.add(earth);
 
 // Moon
 
 const moonTexture = new THREE.TextureLoader(loadingManager).load('moon.jpg');
-const normalTexture = new THREE.TextureLoader(loadingManager).load('normal.jpg');
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -131,8 +145,11 @@ moon.position.setX(-10);
 mars.position.z = 50;
 mars.position.setX(-20);
 
-jeff.position.z = -5;
-jeff.position.x = 2;
+// shakeelHaider.position.z = -5;
+// shakeelHaider.position.x = 2;
+
+earth.position.z = -5;
+earth.position.x = 2;
 
 // Scroll Animation
 
@@ -142,12 +159,15 @@ function moveCamera() {
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
 
-  mars.rotation.x += 0.05;
-  mars.rotation.y += 0.075;
-  mars.rotation.z += 0.05;
+  mars.rotation.x += 0.03;
+  mars.rotation.y += 0.055;
+  mars.rotation.z += 0.03;
 
-  jeff.rotation.y += 0.01;
-  jeff.rotation.z += 0.01;
+  // shakeelHaider.rotation.y += 0.01;
+  // shakeelHaider.rotation.z += 0.01;
+
+   earth.rotation.y += 0.01;
+  earth.rotation.z += 0.01;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
@@ -166,8 +186,9 @@ function animate() {
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
 
+  earth.rotation.x += 0.0005;
   moon.rotation.x += 0.005;
-  mars.rotation.x += 0.005;
+  mars.rotation.x += 0.003;
 
   // controls.update();
 
