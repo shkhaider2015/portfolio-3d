@@ -59,9 +59,20 @@ header {
   border: 2px solid rgba(255, 255, 255, 0.094);
 }
 
+header h1 {
+  margin: 15px 0px;
+}
 header p {
-  font-size: 32px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+header p span {
+  font-size: 26px;
   color: rgba(255, 255, 255, 0.737);
+  padding: 0px;
+  margin: 5px 0px;
 }
 
 section {
@@ -110,11 +121,14 @@ blockquote {
 }
 
 blockquote p {
-  color: black;
-  background-color: white;
+  color: rgb(255, 255, 255);
   font-size: 4rem;
   display: inline;
   line-height: 1;
+  border-radius: 10px;
+  background-color: rgba(240, 248, 255, 0.102);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.094);
 }
 
 .left {
