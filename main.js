@@ -63,7 +63,7 @@ scene.add(torus);
 const pointLight = new THREE.PointLight(0xffffff, 100, 20, 2);
 pointLight.position.set(2, 1, 3);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 2);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
 scene.add(pointLight, ambientLight);
 
 // const mainLight = new THREE.PointLight(0xffffff, 100,10, 2);
@@ -106,12 +106,12 @@ const shakeelHaiderTexture = new THREE.TextureLoader(loadingManager).load(
   "shakeel_haider.jpg"
 );
 
-const shakeelHaider = new THREE.Mesh(
-  new RoundedBoxGeometry(3, 3, 3),
-  new THREE.MeshBasicMaterial({ map: shakeelHaiderTexture })
-);
+// const shakeelHaider = new THREE.Mesh(
+//   new RoundedBoxGeometry(3, 3, 3),
+//   new THREE.MeshBasicMaterial({ map: shakeelHaiderTexture })
+// );
 
-scene.add(shakeelHaider);
+// scene.add(shakeelHaider);
 
 // earth
 const earthTexture = new THREE.TextureLoader(loadingManager).load(
@@ -160,10 +160,10 @@ moon.position.setX(-10);
 mars.position.z = 50;
 mars.position.setX(-20);
 
-shakeelHaider.position.z = 60;
-shakeelHaider.position.x = -20;
-shakeelHaider.position.setY(-5)
-shakeelHaider.rotateY(20)
+// shakeelHaider.position.z = 60;
+// shakeelHaider.position.x = -20;
+// shakeelHaider.position.setY(-5)
+// shakeelHaider.rotateY(20)
 
 earth.position.z = -5;
 earth.position.x = 2;

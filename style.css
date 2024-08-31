@@ -49,7 +49,8 @@ canvas {
 
 
 header {
-  background: rgba(240, 248, 255, 0.102);;
+  background: rgba(240, 248, 255, 0.102);
+  ;
   grid-column: 2 / span 5;
   font-size: 2.5rem;
   padding: 2rem;
@@ -59,20 +60,77 @@ header {
   border: 2px solid rgba(255, 255, 255, 0.094);
 }
 
-header h1 {
+header .name {
   margin: 15px 0px;
+  color: #ffffffb6;
 }
-header p {
+
+header .personal-details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 200px;
+  gap: 20px;
+  color: #ffffffb6;
+}
+
+.personal-details .image-box {}
+
+.personal-details .image-box img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  opacity: .8;
+  border: 1px solid rgba(105, 105, 105, 1);
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(105, 105, 105, 1);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(105, 105, 105, 1);
+  box-shadow: 1px 1px 5px 0px rgba(105, 105, 105, 1);
+}
+
+.personal-details .other-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.personal-details .other-details h6 {
+  margin: 0px;
+}
+
+.personal-details .other-details .contact-title {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+.personal-details .other-details .contacts {
+  width: fit-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
+  padding: 5px 10px 5px 10px;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(105, 105, 105, 0.724);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(105, 105, 105, 0.724);
+  box-shadow: 1px 1px 5px 0px rgba(105, 105, 105, 0.724);
 }
-header p span {
-  font-size: 26px;
-  color: rgba(255, 255, 255, 0.737);
-  padding: 0px;
-  margin: 5px 0px;
+
+.personal-details .other-details .contacts img {
+  width: 40px;
+  height: 40px;
+  opacity: .6;
+  border-radius: 5px;
+  transform: scale(1);
+}
+
+.personal-details .other-details .contacts :hover {
+
 }
 
 section {
@@ -134,9 +192,11 @@ blockquote p {
 .left {
   grid-column: 6 / 12;
 }
+
 .manifesto ul {
   list-style: none;
 }
+
 .manifesto ul li {
   font-size: 14px;
   padding: 5px 0px;
@@ -172,22 +232,27 @@ blockquote p {
   color: white;
   font-size: 2rem;
 }
+
 .projects-list {
   list-style: none;
 }
+
 .projects-list li:not(:first-child) {
   margin-top: 20px;
 }
+
 .projects-list li h4 {
   padding: 0px;
   margin: 0px;
 }
+
 .projects-list li p {
   padding: 0px;
   margin: 0px;
   font-size: 14px;
   opacity: .9;
 }
+
 .tools {
   display: flex;
   justify-content: flex-start;
@@ -209,7 +274,20 @@ blockquote p {
   0% {
     transform: rotateY(0deg);
   }
+
   100% {
     transform: rotateY(360deg);
   }
+}
+
+.wh-head {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.wh-head .company-img {
+  width: 35px;
+  height: auto;
 }
