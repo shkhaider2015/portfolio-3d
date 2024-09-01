@@ -1,7 +1,5 @@
 import "./style.css";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 
 // Setup
 
@@ -13,6 +11,7 @@ const progressBarContainer = document.getElementsByClassName(
 const loadingManager = new THREE.LoadingManager();
 loadingManager.onStart = function (url, loaded, total) {
   console.log("Start : ", url, loaded, total);
+  progressBarContainer[0].style.display = "flex";
 };
 loadingManager.onProgress = function (url, loaded, total) {
   console.log("Progress : ", url, loaded, total);
@@ -21,15 +20,21 @@ loadingManager.onProgress = function (url, loaded, total) {
 loadingManager.onLoad = function () {
   console.log("Loaded : ", progressBarContainer);
   if (progressBarContainer.length > 0) {
-    progressBarContainer[0].style.display = "none";
+    setTimeout(() => {
+      progressBarContainer[0].style.display = "none";
+      const mainTag = document.getElementsByTagName('main');
+      mainTag?.[0].classList.add('loaded')
+      
+    }, 2000);
   }
 };
 loadingManager.onError = function (url) {
   console.log("Error : ", url);
   if (progressBarContainer.length > 0) {
-    progressBarContainer[0].style.display = "none";
+    // progressBarContainer[0].style.display = "none";
   }
 };
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
@@ -77,7 +82,7 @@ scene.add(pointLight, ambientLight);
 
 // const controls = new OrbitControls(camera, renderer.domElement);
 const normalTexture = new THREE.TextureLoader(loadingManager).load(
-  "normal.jpg"
+  "/normal.jpg"
 );
 
 function addStar() {
@@ -97,13 +102,13 @@ Array(200).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader(loadingManager).load("space.jpg");
+const spaceTexture = new THREE.TextureLoader(loadingManager).load("/space.jpg");
 scene.background = spaceTexture;
 
 // Avatar
 
 const shakeelHaiderTexture = new THREE.TextureLoader(loadingManager).load(
-  "shakeel_haider.jpg"
+  "/shakeel_haider.jpg"
 );
 
 // const shakeelHaider = new THREE.Mesh(
@@ -115,7 +120,7 @@ const shakeelHaiderTexture = new THREE.TextureLoader(loadingManager).load(
 
 // earth
 const earthTexture = new THREE.TextureLoader(loadingManager).load(
-  "flat_earth03.jpeg"
+  "/flat_earth03.jpeg"
 );
 
 const earthGeo = new THREE.SphereGeometry(2, 40, 40);
@@ -128,7 +133,7 @@ scene.add(earth);
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader(loadingManager).load("moon.jpg");
+const moonTexture = new THREE.TextureLoader(loadingManager).load("/moon.jpg");
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -141,7 +146,7 @@ const moon = new THREE.Mesh(
 scene.add(moon);
 
 const marsTexture = new THREE.TextureLoader(loadingManager).load(
-  "Mars_Map.webp"
+  "/Mars_Map.webp"
 );
 
 const mars = new THREE.Mesh(
