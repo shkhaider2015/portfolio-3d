@@ -29,12 +29,8 @@ main {
   visibility: visible;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  /* visibility: hidden; */
 }
 
-main.loaded {
-  /* visibility: visible; */
-}
 
 h1,
 h2,

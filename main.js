@@ -22,10 +22,10 @@ loadingManager.onLoad = function () {
   if (progressBarContainer.length > 0) {
     setTimeout(() => {
       progressBarContainer[0].style.display = "none";
-      const mainTag = document.getElementsByTagName('main');
-      mainTag?.[0].classList.add('loaded')
+      // const mainTag = document.getElementsByTagName('main');
+      // mainTag?.[0].classList.add('loaded')
       
-    }, 2000);
+    }, 500);
   }
 };
 loadingManager.onError = function (url) {
