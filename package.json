@@ -9,7 +9,10 @@
     "build": "vite build",
     "serve": "vite preview"
   },
-  "author": "shakeel haider",
+  "author": {
+    "name": "Shakeel Haider",
+    "email": "shkhaider2015@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
     "three": "^0.164.1"

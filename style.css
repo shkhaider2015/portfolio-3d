@@ -17,6 +17,11 @@ canvas {
   font-style: normal;
 }
 
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
 main {
   position: relative;
   width: 100vw;
@@ -24,7 +29,7 @@ main {
   z-index: 99;
   position: absolute;
   width: 100%;
-  margin: 0px auto;
+  margin: 0px 0px;
   padding: 120px 0px;
   visibility: visible;
   display: grid;
@@ -96,18 +101,26 @@ header .personal-details {
   height: 100%;
   width: 100%;
 }
-
-.personal-details .other-details h6 {
+.personal-details .other-details .titles h6 {
+  padding: 0px;
   margin: 0px;
 }
+.personal-details .other-details .titles p {
+  font-size: 18px;
+  font-weight: 600;
+}
 
+header .contact-title,
 .personal-details .other-details .contact-title {
   margin-top: 10px;
   font-size: 14px;
   font-weight: bold;
 
 }
-
+.mobile {
+  display: none !important;
+}
+header .contacts,
 .personal-details .other-details .contacts {
   width: fit-content;
   display: flex;
@@ -122,6 +135,7 @@ header .personal-details {
   box-shadow: 1px 1px 5px 0px rgba(105, 105, 105, 0.724);
 }
 
+header .contacts img,
 .personal-details .other-details .contacts img {
   width: 40px;
   height: 40px;
@@ -291,4 +305,33 @@ blockquote p {
 .wh-head .company-img {
   width: 35px;
   height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    grid-column: 2 / span 11;
+  }
+
+  blockquote {
+    grid-column: 2 / span 12;
+  }
+
+  .desktop {
+    display: none !important;
+  }
+
+  .mobile {
+    display: flex !important;
+  }
+
+  section {
+    grid-column: 2 / 12;
+  }
+
+  .tools {
+    flex-wrap: wrap;
+   }
+   .left {
+    grid-column: 2 / 12;
+  }
 }
